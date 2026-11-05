@@ -1,11 +1,12 @@
 :root {
   --color-ink: #162931;
   --color-body: #3e5863;
+  --color-subtle: #57707b;
   --color-brand: #ff5600;
   --color-logo: #ff7935;
   --color-badge: #ea384e;
   --color-border: rgba(80, 110, 123, 0.25);
-  --color-shadow: rgba(80, 110, 123, 0.6);
+  --color-shadow: rgba(80, 110, 123, 0.1);
   --radius-card: 12.921px;
   --font-heading: 'Nunito', system-ui, sans-serif;
   --font-body: 'Nunito Sans', system-ui, sans-serif;
@@ -126,7 +127,7 @@ button {
   min-height: 0;
   display: flex;
   flex-direction: column;
-  padding: 19px 14px 12px;
+  padding: 8px 14px 12px;
 }
 
 .dashboard__title {
@@ -183,25 +184,27 @@ button {
   display: flex;
   flex-direction: column;
   gap: 4px;
-  max-width: 96px;
+  max-width: 112px;
 }
 
-.card--wide .card__text {
+.card--wide .card__text,
+.card--wide .card__description {
   max-width: 182px;
 }
 
 .card__title {
   font-family: var(--font-heading);
   font-weight: 800;
-  font-size: 14px;
-  line-height: 16px;
+  font-size: 16px;
+  line-height: 18px;
   color: var(--color-ink);
 }
 
 .card__description {
+  max-width: 96px;
   font-size: 12px;
   line-height: 14px;
-  color: var(--color-body);
+  color: var(--color-subtle);
 }
 
 .art {
