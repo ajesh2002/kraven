@@ -1,0 +1,252 @@
+:root {
+  --color-ink: #162931;
+  --color-body: #3e5863;
+  --color-brand: #ff5600;
+  --color-logo: #ff7935;
+  --color-badge: #ea384e;
+  --color-border: rgba(80, 110, 123, 0.25);
+  --color-shadow: rgba(80, 110, 123, 0.6);
+  --radius-card: 12.921px;
+  --font-heading: 'Nunito', system-ui, sans-serif;
+  --font-body: 'Nunito Sans', system-ui, sans-serif;
+
+  font-family: var(--font-body);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  height: 100%;
+  background: #f4f4f6;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* Full-height screen: header, title and tab bar keep their size; the grid takes the rest. */
+.screen {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  height: 100dvh;
+  max-width: 480px;
+  margin: 0 auto;
+  background: #fff;
+  overflow: hidden;
+}
+
+/* Header */
+.header {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: calc(59px + env(safe-area-inset-top));
+  padding: env(safe-area-inset-top) 16px 0 19px;
+  background: #fff;
+}
+
+.logo {
+  display: flex;
+  align-items: flex-end;
+  gap: 4.6px;
+  text-decoration: none;
+}
+
+.logo__text {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 23px;
+  letter-spacing: -0.3px;
+  color: var(--color-logo);
+}
+
+.header__actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.contact {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 8px;
+  border: 1px solid var(--color-border);
+  border-radius: 30px;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 13px;
+  color: var(--color-brand);
+}
+
+.icon-button {
+  position: relative;
+  display: flex;
+}
+
+.badge {
+  position: absolute;
+  top: -2px;
+  left: 11px;
+  min-width: 20px;
+  padding: 2px 4px 1px;
+  border: 2px solid #fff;
+  border-radius: 15px;
+  background: var(--color-badge);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 10px;
+  line-height: 9.5px;
+  color: #fff;
+  text-align: center;
+}
+
+/* Dashboard */
+.dashboard {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 19px 14px 12px;
+}
+
+.dashboard__title {
+  flex: none;
+  margin: 0 0 9px 5px;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+/* 5 rows of category cards + the loyalty banner share the remaining height,
+   keeping the design's 80:84 row ratio. Very short screens fall back to scrolling. */
+.grid {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(5, minmax(64px, 80fr)) minmax(64px, 84fr);
+  gap: 8px 10px;
+  overflow-y: auto;
+}
+
+.card {
+  position: relative;
+  container-type: size;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  border-radius: var(--radius-card);
+  padding: 0 12px;
+  text-align: start;
+  transition: transform 120ms ease;
+}
+
+.card:active {
+  transform: scale(0.98);
+}
+
+.card:focus-visible {
+  outline: 2px solid var(--color-brand);
+  outline-offset: 2px;
+}
+
+.card--wide {
+  grid-column: 1 / -1;
+  margin-top: 2px;
+  padding: 0 22px;
+}
+
+.card__text {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-width: 96px;
+}
+
+.card--wide .card__text {
+  max-width: 182px;
+}
+
+.card__title {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 14px;
+  line-height: 16px;
+  color: var(--color-ink);
+}
+
+.card__description {
+  font-size: 12px;
+  line-height: 14px;
+  color: var(--color-body);
+}
+
+.art {
+  position: absolute;
+  display: block;
+  max-width: none;
+  pointer-events: none;
+}
+
+img.art {
+  object-fit: cover;
+}
+
+.art--crop {
+  overflow: hidden;
+}
+
+.art--crop img {
+  position: absolute;
+  max-width: none;
+}
+
+/* Bottom tab bar */
+.tabbar {
+  flex: none;
+  display: flex;
+  padding: 4px 0 env(safe-area-inset-bottom);
+  background: #fff;
+  box-shadow: 0 -1px 3px var(--color-shadow);
+}
+
+.tab {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: 8px 4px;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 11px;
+  line-height: 16px;
+  color: var(--color-body);
+}
+
+.tab--active {
+  color: var(--color-brand);
+}
